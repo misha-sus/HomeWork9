@@ -1,4 +1,4 @@
-package com.company.MyBase;
+package com.company.HomeWork_2.MyBase;
 
 public abstract class PlansFoods {
     public int mass;

@@ -1,6 +1,5 @@
-package com.company.MyBase;
+package com.company.HomeWork_2.MyBase;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Box <T> {

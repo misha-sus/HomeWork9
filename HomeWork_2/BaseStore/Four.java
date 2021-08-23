@@ -1,4 +1,4 @@
-package com.company.BaseStore;
+package com.company.HomeWork_2.BaseStore;
 
 import java.util.HashMap;
 

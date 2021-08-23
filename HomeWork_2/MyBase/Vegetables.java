@@ -1,6 +1,4 @@
-package com.company.MyBase;
-
-import com.company.MyBase.PlansFoods;
+package com.company.HomeWork_2.MyBase;
 
 import java.util.Arrays;
 import java.util.List;
