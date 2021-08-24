@@ -1,6 +1,8 @@
 package com.company.HomeWork_2.MyBase;
 
 
+import com.company.HomeWork_2.BaseStore.Store;
+import com.company.HomeWork_2.BaseStore.StoreDataBase;
 import com.company.HomeWork_2.MyBase.Food.*;
 
 import java.util.ArrayList;
@@ -9,6 +11,16 @@ import java.util.Random;
 
 public class WareHouse {
     List<Box<PlansFoods>>baseStorage;
+
+
+    public static void initializeStartingSupplies(){
+        generatePlansFood().stream().map((g) -> {
+            Random random = new Random();
+            Store randomStore = StoreDataBase.allStores.get(random.nextInt(StoreDataBase.allStores.size()));
+            return new Box(randomStore.id, randomStore.brand,g);
+        });
+    }
+
 
     public static List<PlansFoods> generatePlansFood(){
         List<PlansFoods> generatedFood = new ArrayList<>();
