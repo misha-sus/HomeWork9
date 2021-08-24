@@ -1,14 +1,12 @@
-package com.company.HomeWork_2.MyBase;
+package com.company.HomeWork_2.MyBase.Food;
 
 public abstract class PlansFoods {
-    public int mass;
-    public int price;
-    public String sort;
+    public double mass;
+    public double price;
 
-    public PlansFoods(int mass, int price, String sort) {
+    public PlansFoods(double mass, double price) {
         this.mass = mass;
         this.price = price;
-        this.sort = sort;
     }
 
     @Override
@@ -16,7 +14,6 @@ public abstract class PlansFoods {
         return "PlansFoods{" +
                 "mass=" + mass +
                 ", price=" + price +
-                ", sort='" + sort + '\'' +
                 '}';
     }
 }

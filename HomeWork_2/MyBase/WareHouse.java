@@ -1,52 +1,44 @@
 package com.company.HomeWork_2.MyBase;
 
+
+import com.company.HomeWork_2.MyBase.Food.*;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 public class WareHouse {
+    List<Box<PlansFoods>>baseStorage;
 
-    public static List<Box> setBoxes() {
+    public static List<PlansFoods> generatePlansFood(){
+        List<PlansFoods> generatedFood = new ArrayList<>();
         Random random = new Random();
-        List<Box> boxes = new ArrayList<>();
-        boxes.add(new Box<>(0, 0, WareHouse.generate(random.nextInt(2) + 1)));
-        boxes.add(new Box<>(1, 1, WareHouse.generate(random.nextInt(10) + 1)));
-        boxes.add(new Box<>(2, 2, WareHouse.generate(random.nextInt(10) + 1)));
-        boxes.add(new Box<>(3, 3, WareHouse.generate(random.nextInt(10) + 1)));
-        boxes.add(new Box<>(4, 4, WareHouse.generate(random.nextInt(10) + 1)));
+        int greenFoodsCount = random.nextInt(30)+10;
 
-        return boxes;
-    }
+        for(int i = 0;i<greenFoodsCount;i++){
+            int greenFoodChoice = random.nextInt(4);
+            double price = random.nextDouble()*30+10;
+            double mass = random.nextDouble()*5 +20;
 
+            PlansFoods plansFood;
 
-
-    public static List<PlansFoods> generate(int count) {
-        Random random = new Random();
-        List<PlansFoods> plansFoods = new ArrayList<>();
-
-        for (int i = 0; i < count; i++) {
-
-            int choiceSortFruits =  random.nextInt(Fruits.sortFruit.length - 1);
-            int choiceNameFruits =  random.nextInt(Fruits.nameFruit.size());
-            int choiceSortVeg =  random.nextInt(Vegetables.sortVeg.length - 1);
-            int choiceNameVeg =  random.nextInt(Vegetables.nameVeg.size());
-
-            plansFoods.add(
-                    new Fruits(random.nextInt(100),
-                            random.nextInt(100),
-                            Fruits.sortFruit[choiceSortFruits],
-                            Fruits.nameFruit.get(choiceNameFruits)
-                    ));
-            plansFoods.add(
-                    new Vegetables(
-                            random.nextInt(100),
-                            random.nextInt(100),
-                            Vegetables.sortVeg[choiceSortVeg],
-                            Vegetables.nameVeg.get(choiceNameVeg)
-                    )
-            );
+            switch (greenFoodChoice){
+                case 0:
+                    plansFood = new Apple(price,mass);
+                    break;
+                case 1:
+                    plansFood = new Banana(price,mass);
+                    break;
+                case 2:
+                    plansFood = new Potato(price,mass);
+                    break;
+                case 3:
+                default:
+                    plansFood = new Cabbage(price,mass);
+                    break;
+            }
+            generatedFood.add(plansFood);
         }
-
-        return plansFoods;
+        return generatedFood;
     }
 }
